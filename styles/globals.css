@@ -1,0 +1,70 @@
+/* ============================================
+   BAZANA! – Global Styles (Next.js port)
+   Mirrors the original bazana.in stylesheet
+   ============================================ */
+
+/* Typekit font import */
+@import url("https://use.typekit.net/gec3ufs.css");
+
+/* Font Awesome */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+/* Bootstrap 4 */
+@import url("https://www.bazana.in/assets/css/bootstrap.min.css");
+
+/* Animate.css */
+@import url("https://www.bazana.in/assets/css/animate.min.css");
+
+/* Slick carousel */
+@import url("https://www.bazana.in/assets/css/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css");
+
+/* Bazana min.css */
+@import url("https://www.bazana.in/assets/css/min.css");
+
+/* ---- Inline overrides from the original HTML ---- */
+.btn-distances {
+  margin-top: 8%;
+}
+.btn-distances .btn {
+  font-weight: 700;
+  border-radius: 6px;
+}
+.the-orange .btn-distances .btn {
+  background-color: #fff;
+  color: #ee4523;
+}
+.the-orange .btn-distances .btn:hover {
+  background-color: #ee4523;
+  color: #fff;
+}
+
+/* Slick carousel arrow colours driven by JS in original –
+   replicated via CSS custom property set inline */
+.buck-carousel .slick-prev,
+.buck-carousel .slick-next {
+  font-size: 22px;
+  z-index: 10;
+}
+
+/* Ensure slick slides display block */
+.slick-slide {
+  outline: none;
+}
+
+/* Colour animation keyframes (from original) */
+@keyframes AnimationName {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@-webkit-keyframes AnimationName {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@-moz-keyframes AnimationName {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
