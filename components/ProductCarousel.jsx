@@ -127,7 +127,7 @@ export default function ProductCarousel() {
   }
 
   return (
-    <div className="row car-holder wow fadeIn m-0 align-items-stretch" style={{ minHeight: '920px', position: 'relative', overflow: 'hidden' }}>
+    <div className="row car-holder wow fadeIn m-0 align-items-stretch" style={{ minHeight: '900px', position: 'relative', overflow: 'hidden', backgroundColor: '#ffffff' }}>
       
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -140,42 +140,109 @@ export default function ProductCarousel() {
           outline: none !important;
         }
 
-        /* Perfect arrow placement hugging the giant bag */
-        .left-arrow-btn { left: calc(50% - 320px); }
+        /* --- DESKTOP STYLES (Untouched) --- */
+        .desktop-align { align-items: center; }
+
+        .left-arrow-btn { left: calc(50% - 310px); }
         .right-arrow-btn { right: 30px; }
 
-        /* Adjusted padding so text completely clears the huge 580px bag and right-side icons */
-        .left-text-col { padding-left: 8%; padding-right: 360px; }
-        .right-text-col { padding-left: 330px; padding-right: 15%; }
+        .left-text-col { padding-left: 8%; padding-right: 320px; }
+        .right-text-col { padding-left: 310px; padding-right: 140px; }
 
-        /* THE MASSIVE HERO BAG */
-        .product-img-box { width: 580px; height: 850px; }
+        .product-img-box { width: 550px; height: 800px; }
+        
+        .icon-top { top: 15%; right: 40px; }
+        .icon-bottom { bottom: 15%; right: 40px; }
 
-        @media (max-width: 1200px) {
-          .left-arrow-btn { left: calc(50% - 280px); }
-          .left-text-col { padding-right: 280px; }
-          .right-text-col { padding-left: 260px; }
-          .product-img-box { width: 450px; height: 650px; }
-          .floating-icon-group { display: none !important; } /* Hide floating icons on small screens */
+        @media (max-width: 1400px) {
+          .icon-top { top: 10%; right: 20px; transform: scale(0.85); }
+          .icon-bottom { bottom: 10%; right: 20px; transform: scale(0.85); }
+          .right-text-col { padding-right: 90px; }
         }
 
+        @media (max-width: 1200px) {
+          .floating-icon-group { display: none !important; }
+          .left-arrow-btn { left: calc(50% - 250px); }
+          .left-text-col { padding-right: 250px; }
+          .right-text-col { padding-left: 250px; padding-right: 50px; }
+          .product-img-box { width: 450px; height: 650px; }
+        }
+
+        /* --- FULL MOBILE OVERHAUL --- */
         @media (max-width: 991px) {
-          .left-arrow-btn { left: 20px !important; top: 40% !important; }
-          .right-arrow-btn { right: 20px !important; top: 40% !important; }
-          .left-text-col { padding: 2rem !important; padding-bottom: 250px !important; text-align: center; }
-          .right-text-col { padding: 2rem !important; padding-top: 250px !important; text-align: center; }
-          .product-img-box { left: 50% !important; top: 50% !important; height: 450px !important; width: 300px !important; }
+          .car-holder { min-height: auto !important; flex-direction: column !important; display: flex !important; }
+
+          /* Top White Text Section */
+          .desktop-align { align-items: flex-start !important; }
+          .left-col-mobile { min-height: auto !important; width: 100% !important; }
+          
+          /* Bottom Colored Section */
+          .right-col-mobile { 
+            height: 520px !important; 
+            min-height: 520px !important; 
+            width: 70% !important; 
+            margin-left: 30% !important; 
+            align-items: center !important; /* CRITICAL FIX: Vertically centers text in the colored box */
+            justify-content: flex-start !important; 
+          }
+
+          /* Top Title Text Fixes */
+          .left-text-col { padding: 3rem 1.5rem 1.5rem 1.5rem !important; text-align: center; }
+          .left-text-col h2 { font-size: 2.5rem !important; }
+          .separator { margin: 1rem auto !important; }
+
+          /* Colored Text Block Padding (adjusted to clear the larger bag) */
+          .right-text-col { padding: 0 35px 0 130px !important; text-align: left; }
+          .right-text-col h2 { font-size: 1.8rem !important; margin-bottom: 5px !important; }
+          .right-text-col h3 { font-size: 0.8rem !important; letter-spacing: 1px !important; margin-bottom: 5px !important;}
+          .right-text-col p { font-size: 0.8rem !important; line-height: 1.3 !important; max-width: 100% !important; }
+          .right-text-col .btn { padding: 6px 16px !important; font-size: 0.8rem !important; margin-top: 10px !important; border-width: 2px !important; }
+
+          /* Bag Size & Position: Scaled up to 420x280! */
+          .product-img-box {
+            top: auto !important;
+            bottom: 260px !important; /* 520px/2 keeps it exactly vertically centered */
+            left: 30% !important; 
+            transform: translate(-50%, 50%) !important;
+            height: 420px !important; 
+            width: 280px !important;
+          }
+
+          /* Arrows adjusted to match new bag center */
+          .left-arrow-btn {
+            left: 5px !important;
+            top: auto !important;
+            bottom: 260px !important; 
+            transform: translateY(50%) !important;
+            font-size: 2.2rem !important;
+          }
+          .right-arrow-btn {
+            right: 5px !important;
+            top: auto !important;
+            bottom: 260px !important;
+            transform: translateY(50%) !important;
+            font-size: 2.2rem !important;
+          }
+
+          /* Floating Icons */
+          .floating-icon-group { 
+            display: flex !important; 
+            transform: scale(0.6); 
+            transform-origin: right center; 
+            right: -5px !important; 
+          }
+          .icon-top { top: auto !important; bottom: 410px !important; }
+          .icon-bottom { bottom: 30px !important; }
         }
       `}} />
 
-      {/* LEFT COLUMN */}
-      <div className="col-lg-6 d-flex align-items-center" style={{ backgroundColor: '#ffffff', zIndex: 2 }}>
+      {/* LEFT COLUMN (White Section) */}
+      <div className="col-lg-6 d-flex desktop-align left-col-mobile" style={{ backgroundColor: '#ffffff', zIndex: 2 }}>
         <div className="w-100 left-text-col">
-          {/* Split color header to exactly match original branding */}
           <h2 className="text-uppercase" style={{ fontWeight: 900, fontSize: '4rem', lineHeight: '1.1' }}>
             <span style={{ color: '#8b151b' }}>
-              Snacks <br className="d-none d-sm-inline" />
-              that get <br className="d-none d-sm-inline" />
+              Snacks <br />
+              that get <br />
             </span>
             <span style={{ color: '#d3121a' }}>you buzzing !</span>
           </h2>
@@ -191,9 +258,9 @@ export default function ProductCarousel() {
         </div>
       </div>
 
-      {/* RIGHT COLUMN */}
+      {/* RIGHT COLUMN (Colored Section) */}
       <motion.div 
-        className="col-lg-6 d-flex align-items-center position-relative"
+        className="col-lg-6 position-relative d-flex desktop-align right-col-mobile"
         animate={{ backgroundColor: currentProduct.colour }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
@@ -219,7 +286,7 @@ export default function ProductCarousel() {
         </div>
 
         {/* --- DYNAMIC FLOATING LIFESTYLE ICONS --- */}
-        <div className="floating-icon-group" style={{ position: 'absolute', top: '15%', right: '8%', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 10 }}>
+        <div className="floating-icon-group icon-top" style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 10 }}>
           <motion.div 
             style={{ width: '90px', height: '90px', backgroundColor: 'white', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '10px', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}
           >
@@ -233,7 +300,7 @@ export default function ProductCarousel() {
           <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>TIFFIN!</span>
         </div>
 
-        <div className="floating-icon-group" style={{ position: 'absolute', bottom: '15%', right: '8%', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 10 }}>
+        <div className="floating-icon-group icon-bottom" style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 10 }}>
           <motion.div 
             style={{ width: '90px', height: '90px', backgroundColor: 'white', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '10px', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}
           >
@@ -246,7 +313,6 @@ export default function ProductCarousel() {
           </motion.div>
           <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.2rem', textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>STUDY!</span>
         </div>
-        {/* --------------------------------------- */}
 
         <button 
           className="right-arrow-btn"
@@ -257,7 +323,7 @@ export default function ProductCarousel() {
         </button>
       </motion.div>
 
-      {/* Left Arrow */}
+      {/* Left Arrow (Dynamic Color) */}
       <motion.button 
         className="left-arrow-btn"
         onClick={slidePrev} 
