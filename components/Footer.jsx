@@ -5,19 +5,16 @@ export default function Footer() {
         <div className="row">
           {/* Logo */}
           <div className="col-lg-5">
-            <a href="/" style={{ textDecoration: 'none' }}>
-              <h2 
-                className="text-white m-0 mb-4" 
+            <a href="/" style={{ textDecoration: 'none', display: 'inline-block' }}>
+              <img 
+                src="/images/logo.jpg" 
+                alt="Grams Logo" 
                 style={{ 
-                  fontWeight: 900, 
-                  letterSpacing: '2px', 
-                  fontSize: '4rem',
-                  lineHeight: '1'
-                }}
-              >
-                TK <br />
-                SNACKS<span style={{ color: '#ffc107' }}>.</span>
-              </h2>
+                  maxWidth: '240px', 
+                  marginBottom: '1.5rem',
+                  filter: 'drop-shadow(0 5px 15px rgba(0,0,0,0.4))'
+                }} 
+              />
             </a>
           </div>
 
@@ -67,7 +64,7 @@ export default function Footer() {
 
         <div className="row copyright" style={{ marginTop: '40px' }}>
           <div className="col-md-12">
-            &copy; 2026 TK Snacks. All rights reserved. Built from scratch.
+            &copy; 2026 Grams. All rights reserved. Built from scratch.
           </div>
         </div>
       </div>

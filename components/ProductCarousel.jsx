@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 /* -------------------------------------------------------
-   Client Product Data (Grams Brand)
+   Client Product Data (Grams Brand) - 25 Products Total
    ------------------------------------------------------ */
 const products = [
   {
@@ -81,7 +81,7 @@ const products = [
     alt: 'Salted Pistachios',
     h3: 'PREMIUM QUALITY', 
     h2: 'SALTED PISTACHIOS !',
-    p: 'Perfectly roasted and salted. Once you start popping these pistachios, you will not be able to stop!',
+    p: 'Perfectly roasted and salted. Once you start popping these pistachios, you won\'t be able to stop!',
     link: '#',
     colour: '#5A8D55', 
   },
@@ -104,6 +104,157 @@ const products = [
     p: 'The ultimate superfood. Protein-rich quinoa for a highly nutritious, balanced lifestyle!',
     link: '#',
     colour: '#22827F', 
+  },
+  {
+    img: '/images/Dried Kiwi F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1585059895524-72359fa06bc3?w=600&q=80',
+    alt: 'Dried Kiwi Slice',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'DRIED KIWI SLICE !',
+    p: 'Tangy, sweet, and packed with vitamin C. A vibrant tropical treat to brighten your day!',
+    link: '#',
+    colour: '#2A6136', 
+  },
+  {
+    img: '/images/Dreid Mango F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1553279768-865429fa0078?w=600&q=80',
+    alt: 'Dried Mango Slice',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'DRIED MANGO SLICE !',
+    p: 'Chewy, naturally sweet tropical goodness. Your perfect on-the-go sunny escape!',
+    link: '#',
+    colour: '#D39121', 
+  },
+  {
+    img: '/images/Hazelnuts F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1563013544-1f4a9ce86e1d?w=600&q=80',
+    alt: 'Hazelnuts',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'HAZELNUTS !',
+    p: 'Rich, crunchy, and packed with healthy fats. The ultimate premium snacking experience.',
+    link: '#',
+    colour: '#192C69', 
+  },
+  {
+    img: '/images/Dried Blueberry F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1590004953392-5aba2e72269a?w=600&q=80',
+    alt: 'Dried Blueberry',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'DRIED BLUEBERRY !',
+    p: 'Bite-sized antioxidant powerhouses. Perfectly sweet and tart for a healthy lifestyle!',
+    link: '#',
+    colour: '#22368B', 
+  },
+  {
+    img: '/images/Dried Apricots F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
+    alt: 'Dried Apricots',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'DRIED APRICOTS !',
+    p: 'Plump, moist, and naturally sweet. A delicious source of fiber and energy.',
+    link: '#',
+    colour: '#E08518', 
+  },
+  {
+    img: '/images/Chia F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1585250482260-26477d61c6b1?w=600&q=80',
+    alt: 'Chia Seeds',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'CHIA SEEDS !',
+    p: 'Tiny seeds with massive benefits. Rich in Omega-3s to fuel your busy mornings!',
+    link: '#',
+    colour: '#634E3C', 
+  },
+  {
+    img: '/images/Cashew F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1619586111742-02687df2a00c?w=600&q=80',
+    alt: 'Cashew',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'CASHEW !',
+    p: 'Creamy, rich, and perfectly whole. The classic premium nut for every occasion.',
+    link: '#',
+    colour: '#1A689D', 
+  },
+  {
+    img: '/images/Brazil Nuts F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1595111166405-b063ee34863f?w=600&q=80',
+    alt: 'Brazil Nuts',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'BRAZIL NUTS !',
+    p: 'Earthy, crunchy, and loaded with selenium. A rare and powerful superfood snack.',
+    link: '#',
+    colour: '#594474', 
+  },
+  {
+    img: '/images/Black Raisins F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
+    alt: 'Black Raisins',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'BLACK RAISINS !',
+    p: 'Juicy, sweet, and iron-rich. A timeless natural candy to keep your energy high.',
+    link: '#',
+    colour: '#411C6B', 
+  },
+  {
+    img: '/images/Pistachio Kernals F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1598218520286-90cb878dd5ea?w=600&q=80',
+    alt: 'Pistachio Kernels',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'PISTACHIO KERNELS !',
+    p: 'Vibrant, pre-shelled, and totally addictive. All the flavor without the work!',
+    link: '#',
+    colour: '#5F8D3B', 
+  },
+  // --- FINAL 5 PRODUCTS ---
+  {
+    img: '/images/Pecan F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
+    alt: 'Pecan Nuts',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'PECAN NUTS !',
+    p: 'Buttery, rich, and naturally sweet. A classic favorite for snacking or elevating your favorite recipes!',
+    link: '#',
+    colour: '#4A2E24', 
+  },
+  {
+    img: '/images/Macademia F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
+    alt: 'Macadamia Nuts',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'MACADAMIA NUTS !',
+    p: 'Creamy, decadent, and luxurious. Indulge in the king of nuts for a truly premium snacking experience.',
+    link: '#',
+    colour: '#801A3A', 
+  },
+  {
+    img: '/images/Dried Cranberry F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
+    alt: 'Dried Cranberries',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'DRIED CRANBERRIES !',
+    p: 'Sweet, tart, and bursting with flavor. The perfect vibrant addition to your daily routine!',
+    link: '#',
+    colour: '#A51C30', 
+  },
+  {
+    img: '/images/Apricots F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
+    alt: 'Apricots',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'APRICOTS !',
+    p: 'Golden, chewy, and rich in fiber. A burst of natural sunshine in every bite to keep you moving!',
+    link: '#',
+    colour: '#D97F27', 
+  },
+  {
+    img: '/images/Almonds F.png',
+    fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
+    alt: 'Almonds',
+    h3: 'PREMIUM QUALITY', 
+    h2: 'ALMONDS !',
+    p: 'Crunchy, classic, and packed with protein. The ultimate everyday superfood for sustained energy!',
+    link: '#',
+    colour: '#C26732', 
   }
 ]
 
@@ -140,24 +291,27 @@ export default function ProductCarousel() {
           outline: none !important;
         }
 
-        /* --- DESKTOP STYLES (Untouched) --- */
+        /* --- DESKTOP STYLES --- */
         .desktop-align { align-items: center; }
 
-        .left-arrow-btn { left: calc(50% - 310px); }
+        .left-arrow-btn { left: calc(50% - 370px); }
         .right-arrow-btn { right: 30px; }
 
-        .left-text-col { padding-left: 8%; padding-right: 320px; }
-        .right-text-col { padding-left: 310px; padding-right: 140px; }
+        .left-text-col { padding-left: 8%; padding-right: 380px; }
+        .right-text-col { padding-left: 360px; padding-right: 140px; }
 
-        .product-img-box { width: 550px; height: 800px; }
+        .product-img-box { width: 650px; height: 950px; }
         
         .icon-top { top: 15%; right: 40px; }
         .icon-bottom { bottom: 15%; right: 40px; }
 
         @media (max-width: 1400px) {
+          .product-img-box { width: 550px; height: 800px; }
+          .left-arrow-btn { left: calc(50% - 310px); }
+          .left-text-col { padding-right: 320px; }
+          .right-text-col { padding-left: 310px; padding-right: 90px; }
           .icon-top { top: 10%; right: 20px; transform: scale(0.85); }
           .icon-bottom { bottom: 10%; right: 20px; transform: scale(0.85); }
-          .right-text-col { padding-right: 90px; }
         }
 
         @media (max-width: 1200px) {
@@ -172,43 +326,37 @@ export default function ProductCarousel() {
         @media (max-width: 991px) {
           .car-holder { min-height: auto !important; flex-direction: column !important; display: flex !important; }
 
-          /* Top White Text Section */
           .desktop-align { align-items: flex-start !important; }
           .left-col-mobile { min-height: auto !important; width: 100% !important; }
           
-          /* Bottom Colored Section */
           .right-col-mobile { 
             height: 520px !important; 
             min-height: 520px !important; 
             width: 70% !important; 
             margin-left: 30% !important; 
-            align-items: center !important; /* CRITICAL FIX: Vertically centers text in the colored box */
+            align-items: center !important; 
             justify-content: flex-start !important; 
           }
 
-          /* Top Title Text Fixes */
           .left-text-col { padding: 3rem 1.5rem 1.5rem 1.5rem !important; text-align: center; }
           .left-text-col h2 { font-size: 2.5rem !important; }
           .separator { margin: 1rem auto !important; }
 
-          /* Colored Text Block Padding (adjusted to clear the larger bag) */
           .right-text-col { padding: 0 35px 0 130px !important; text-align: left; }
           .right-text-col h2 { font-size: 1.8rem !important; margin-bottom: 5px !important; }
           .right-text-col h3 { font-size: 0.8rem !important; letter-spacing: 1px !important; margin-bottom: 5px !important;}
           .right-text-col p { font-size: 0.8rem !important; line-height: 1.3 !important; max-width: 100% !important; }
           .right-text-col .btn { padding: 6px 16px !important; font-size: 0.8rem !important; margin-top: 10px !important; border-width: 2px !important; }
 
-          /* Bag Size & Position: Scaled up to 420x280! */
           .product-img-box {
             top: auto !important;
-            bottom: 260px !important; /* 520px/2 keeps it exactly vertically centered */
+            bottom: 260px !important; 
             left: 30% !important; 
             transform: translate(-50%, 50%) !important;
             height: 420px !important; 
             width: 280px !important;
           }
 
-          /* Arrows adjusted to match new bag center */
           .left-arrow-btn {
             left: 5px !important;
             top: auto !important;
@@ -224,7 +372,6 @@ export default function ProductCarousel() {
             font-size: 2.2rem !important;
           }
 
-          /* Floating Icons */
           .floating-icon-group { 
             display: flex !important; 
             transform: scale(0.6); 
@@ -239,12 +386,12 @@ export default function ProductCarousel() {
       {/* LEFT COLUMN (White Section) */}
       <div className="col-lg-6 d-flex desktop-align left-col-mobile" style={{ backgroundColor: '#ffffff', zIndex: 2 }}>
         <div className="w-100 left-text-col">
-          <h2 className="text-uppercase" style={{ fontWeight: 900, fontSize: '4rem', lineHeight: '1.1' }}>
+          <h2 className="text-uppercase" style={{ fontWeight: 900, fontSize: '3.2rem', lineHeight: '1.2' }}>
             <span style={{ color: '#8b151b' }}>
               Snacks <br />
               that get <br />
             </span>
-            <span style={{ color: '#d3121a' }}>you buzzing !</span>
+            <span style={{ color: '#d3121a', whiteSpace: 'nowrap' }}>you buzzing !</span>
           </h2>
           
           <img

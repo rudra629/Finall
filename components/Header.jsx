@@ -20,18 +20,17 @@ export default function Header() {
     <header>
       {/* Logo */}
       <div className="bazana-logo wow fadeIn">
-        <a href="/" style={{ textDecoration: 'none', zIndex: 100 }}>
-          <h2 
-            className="text-white m-0" 
+        <a href="/" style={{ textDecoration: 'none', zIndex: 100, display: 'block' }}>
+          <img 
+            src="/images/logo.jpg" 
+            alt="Grams Logo" 
             style={{ 
-              fontWeight: 900, 
-              letterSpacing: '1px', 
-              fontSize: '2.5rem',
-              textShadow: '0 4px 15px rgba(0,0,0,0.6)' 
-            }}
-          >
-            TK SNACKS<span style={{ color: '#ffc107' }}>.</span>
-          </h2>
+              maxHeight: '75px', 
+              objectFit: 'contain',
+              // Adding a subtle shadow so it pops if the background gets bright
+              filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.3))' 
+            }} 
+          />
         </a>
       </div>
 
@@ -90,7 +89,7 @@ export default function Header() {
               </a>
             </li>
           </ul>
-          <p>&copy; 2026 TK Snacks. Built from scratch.</p>
+          <p>&copy; 2026 Grams. Built from scratch.</p>
         </div>
       </div>
     </header>
