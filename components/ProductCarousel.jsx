@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 /* -------------------------------------------------------
@@ -260,16 +260,6 @@ const products = [
 export default function ProductCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // --- NEW SILENT PRELOADER ---
-  // This downloads all 25 images into the browser cache the second the page loads
-  // so there is zero delay when clicking next/prev arrows.
-  useEffect(() => {
-    products.forEach((product) => {
-      const img = new window.Image()
-      img.src = product.img
-    })
-  }, [])
-
   const slideNext = () => {
     setCurrentIndex((prev) => (prev + 1) % products.length)
   }
@@ -421,6 +411,7 @@ export default function ProductCarousel() {
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
         <div className="text-white w-100 right-text-col" style={{ zIndex: 5 }}>
+          {/* We keep AnimatePresence here because the text loads instantly */}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -490,7 +481,11 @@ export default function ProductCarousel() {
         <i className="fa fa-chevron-left" />
       </motion.button>
 
-      {/* CENTERED PRODUCT IMAGE */}
+      {/* CRITICAL FIX: ALL 25 IMAGES ARE RENDERED IMMEDIATELY.
+        This forces the browser to fully download and process the heavy PNG files
+        the second the website loads. When you click 'next', we simply fade the opacity.
+        Zero downloading = Zero stuttering. 
+      */}
       <div 
         className="product-img-box"
         style={{ 
@@ -502,26 +497,24 @@ export default function ProductCarousel() {
           pointerEvents: 'none' 
         }}
       >
-        <AnimatePresence mode="wait">
+        {products.map((product, idx) => (
           <motion.img
-            key={currentIndex}
-            src={currentProduct.img}
-            onError={(e) => { e.target.src = currentProduct.fallbackImg }} 
-            alt={currentProduct.alt}
-            variants={fadeVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
+            key={idx}
+            src={product.img}
+            onError={(e) => { e.target.src = product.fallbackImg }} 
+            alt={product.alt}
+            animate={{ opacity: currentIndex === idx ? 1 : 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             style={{ 
               position: 'absolute', 
               width: '100%', 
               height: '100%', 
               objectFit: 'contain',
-              filter: 'drop-shadow(0px 30px 45px rgba(0,0,0,0.5))' 
+              filter: 'drop-shadow(0px 30px 45px rgba(0,0,0,0.5))',
+              zIndex: currentIndex === idx ? 2 : 0
             }}
           />
-        </AnimatePresence>
+        ))}
       </div>
 
     </div>
