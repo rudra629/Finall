@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 /* -------------------------------------------------------
@@ -205,7 +205,6 @@ const products = [
     link: '#',
     colour: '#5F8D3B', 
   },
-  // --- FINAL 5 PRODUCTS ---
   {
     img: '/images/Pecan F.png',
     fallbackImg: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80',
@@ -260,6 +259,16 @@ const products = [
 
 export default function ProductCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+
+  // --- NEW SILENT PRELOADER ---
+  // This downloads all 25 images into the browser cache the second the page loads
+  // so there is zero delay when clicking next/prev arrows.
+  useEffect(() => {
+    products.forEach((product) => {
+      const img = new window.Image()
+      img.src = product.img
+    })
+  }, [])
 
   const slideNext = () => {
     setCurrentIndex((prev) => (prev + 1) % products.length)
